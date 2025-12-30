@@ -1,0 +1,93 @@
+Overview
+--------
+
+This project simulates a real-world endpoint security investigation to understand how modern antivirus and endpoint protection solutions behave when suspicious content is present but no malicious activity occurs. 
+The focus is on analyst validation, false-positive assessment, and safe decision-making rather than artificially triggering alerts.
+
+Background
+----------
+
+Enterprise security tools are designed to prioritize risk-based detection. 
+Not every suspicious-looking file results in an alert. 
+Analysts must understand why alerts are raised — and why sometimes they are not — to avoid unnecessary remediation and business disruption.
+
+Test Scenario
+-------------
+
+As part of this lab, the EICAR standard antivirus test string (developed by the European Institute for Computer Antivirus Research) was used.
+The EICAR string is not malware and is widely used to safely validate antivirus detection behavior.
+
+The string was saved as a non-executable text file and accessed without execution to observe how endpoint protection responds to suspicious content under low-risk conditions.
+
+Investigation Steps
+------------------
+
+1) Verified that Windows Defender real-time protection and security intelligence updates were enabled
+
+2) Created a test file containing the EICAR antivirus test string
+
+3) Accessed the file as a text document (no execution)
+
+4) Reviewed Windows Defender Protection History for alerts
+
+5) Performed a quick system scan to validate endpoint health
+
+6) Checked for indicators of execution, persistence, or network activity
+
+Findings
+-------
+
+1) The file remained non-executable and was not run as a process
+
+2) No malicious behavior was observed
+
+3) No persistence mechanisms were created
+
+4) No outbound network connections were initiated
+
+5) Windows Defender did not classify the file as a threat
+
+6) A quick scan confirmed no active threats on the system
+
+Analyst Decision
+---------------
+
+No remediation action was taken.
+Since the file was non-executable and no malicious behavior occurred, actions such as quarantine or endpoint isolation would have been unnecessary and could have caused avoidable disruption.
+
+Important Note on Execution (Professional Consideration)
+--------------------------------------------------------
+
+If the same EICAR content were introduced as executable content, endpoint protection would be expected to block it pre-execution. 
+However, in real enterprise environments, security analysts do not execute suspicious files on endpoints to validate detections.
+
+This lab intentionally avoided execution to reflect responsible analyst behavior, focusing on risk assessment, context, and decision-making rather than forcing alerts.
+
+Outcome
+-------
+
+1) System remained secure
+
+2) No alerts required escalation
+
+3) Findings documented for audit and learning purposes
+
+Key Learnings
+------------
+
+1) Suspicious content alone does not indicate compromise
+
+2) Antivirus tools rely heavily on execution context and behavior
+
+3) Not all test scenarios produce alerts, and that is expected
+
+4) Analyst validation is critical to prevent unnecessary response actions
+
+5) Effective security operations balance protection with business continuity
+
+Conclusion
+---------
+
+This lab demonstrates that strong security operations involve understanding both when tools alert and when they intentionally remain silent. 
+Accurate investigation and disciplined decision-making are essential skills for modern security analysts.
+
